@@ -448,7 +448,12 @@ section {
   padding: 34px 20px;
   border-radius: 10px;
   border: 1px solid #000;
-  max-width: 360px;
+  flex: 360px;
+}
+@media (min-width: 790px) {
+  .cases-section .cases_cards .card {
+    flex-grow: 0;
+  }
 }
 .cases-section .cases_cards .card .logo-service {
   display: flex;
@@ -463,4 +468,8 @@ section {
 .cases-section .cases_cards .card .logo-service .desc {
   font-size: 17px;
   color: #666666;
+}
+.cases-section .buttons {
+  margin-top: 30px;
+  text-align: center;
 }

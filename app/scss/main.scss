@@ -1,6 +1,6 @@
 $blue: #3f88c5;
 $text-main: #000;
-$gray: #848484;
+$gray-dark: #7e7e7e;
 $gray: #f3f3f3;
 $light-gray: #e1e1e1;
 
@@ -17,6 +17,7 @@ body {
   font-size: 15px;
   font-weight: 300;
   // line-height: 1.4;
+  // background-color: #f5f5f5;
 }
 
 h1,
@@ -75,17 +76,18 @@ li {
   src: url('/fonts/ProximaNova/proximanova_regular.otf');
 }
 
+@font-face {
+  // font-family: 'Proximanova semibold';
+  // src: url('/fonts/ProximaNova/');
+}
+
 .container {
   width: 100%;
-  max-width: 1540px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
 
-  @media (min-width: 1440px) {
-    padding: 0 100px;
-  }
-
-  @media (min-width: 1920px) {
+  @media (min-width: 1180px) {
     padding: 0;
   }
 }
@@ -104,8 +106,10 @@ li {
   line-height: 1.4;
   font-size: 16px;
   font-family: 'ProximaNova', sans-serif;
+  font-weight: 400;
   border: 1px solid;
   cursor: pointer;
+  transition: all 0.1s ease-in;
 
   &.white {
     color: $text-main;
@@ -115,6 +119,24 @@ li {
   &.blue {
     color: #fff;
     background-color: $blue;
+  }
+
+  &.gray {
+    border-color: #fff;
+    outline: 1px solid $gray-dark;
+
+    &.active {
+      outline: 2px solid $blue;
+      color: $blue;
+      font-weight: 500;
+      outline-offset: -2px;
+    }
+
+    &:hover {
+      outline: 2px solid $blue;
+      outline-offset: -2px;
+      border-color: $blue;
+    }
   }
 }
 
@@ -137,7 +159,7 @@ section {
     background-color: $gray;
     border-radius: 10px;
 
-    @media (min-width: 1054px) {
+    @media (min-width: 1024px) {
       flex: 360px;
       max-width: 360px;
     }
@@ -149,6 +171,7 @@ section {
       font-size: 16px;
       color: $text-main;
       line-height: auto;
+      font-weight: 400;
     }
 
     .img {
@@ -176,14 +199,14 @@ section {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1054px) {
+    @media (min-width: 1024px) {
       flex-direction: row;
     }
 
     .direction-item {
       display: none;
 
-      @media (min-width: 1054px) {
+      @media (min-width: 1024px) {
         display: block;
       }
 
@@ -226,7 +249,7 @@ section {
       width: 510px;
       position: relative;
 
-      @media (min-width: 1054px) {
+      @media (min-width: 1024px) {
         display: block;
       }
 
@@ -263,7 +286,7 @@ section {
       position: relative;
       margin-bottom: 10px;
 
-      @media (min-width: 1054px) {
+      @media (min-width: 1024px) {
         display: none;
       }
     }
@@ -288,6 +311,7 @@ section {
       right: 20px;
       font-size: 25px;
       font-weight: bold;
+      color: #cbcbcb;
     }
 
     .box.active {
@@ -351,7 +375,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 50px;
-    column-gap: 9px;
+    column-gap: 30px;
     padding-top: 20px;
 
     .item {
@@ -361,9 +385,9 @@ section {
       background-color: $gray;
       border-radius: 10px;
       padding: 15px;
-      margin-left: 20px;
+      // margin-left: 20px;
       gap: 16px;
-      max-width: 380px;
+      max-width: 360px;
 
       .profile_fio {
         display: flex;
@@ -377,7 +401,7 @@ section {
           height: 100px;
           border-radius: 70px;
 
-          @media (min-width: 1054px) {
+          @media (min-width: 1024px) {
             background-size: 126px;
             width: 126px;
             height: 126px;
@@ -388,7 +412,7 @@ section {
           padding-left: 90px;
           font-size: 17px;
 
-          @media (min-width: 1054px) {
+          @media (min-width: 1024px) {
             padding-left: 107px;
           }
 
@@ -414,16 +438,21 @@ section {
 
   .logos {
     display: none;
-    @media (min-width: 1054px) {
+
+    @media (min-width: 1024px) {
       margin-top: 50px;
       display: grid;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       margin-top: 50px;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       justify-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     > div {
@@ -448,8 +477,58 @@ section {
       }
     }
 
-    @media (min-width: 1054px) {
+    @media (min-width: 1024px) {
       display: none;
+    }
+  }
+}
+
+//
+
+.cases-section {
+  .cases-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+
+    input[type='checkbox'] {
+      display: none;
+    }
+  }
+
+  .cases_cards {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    .card {
+      display: grid;
+      gap: 40px;
+      padding: 34px 20px;
+      border-radius: 10px;
+      border: 1px solid #000;
+      max-width: 360px;
+
+      .logo-service {
+        display: flex;
+        gap: 18px;
+
+        .logo {
+          width: 122px;
+        }
+
+        .title {
+          font-size: 20px;
+        }
+
+        .desc {
+          font-size: 17px;
+          color: #666666;
+        }
+      }
     }
   }
 }

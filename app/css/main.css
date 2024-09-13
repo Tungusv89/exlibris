@@ -1,0 +1,408 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #ffffff;
+  font-family: "Proximanova light", sans-serif;
+  color: #000;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0px;
+  margin: 0px;
+}
+
+section {
+  background-color: #ffffff;
+}
+
+input {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+a:visited {
+  color: #3f88c5;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "Proximanova light";
+  src: url("/fonts/ProximaNova/proximanova_light.otf");
+}
+@font-face {
+  font-family: "Proximanova";
+  src: url("/fonts/ProximaNova/proximanova_regular.otf");
+}
+.container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 100px;
+  }
+}
+@media (min-width: 1920px) {
+  .container {
+    padding: 0;
+  }
+}
+
+.section-title {
+  font-size: 32px;
+  font-family: "Proximanova", sans-serif;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 32px;
+  line-height: 1.4;
+  font-size: 16px;
+  font-family: "ProximaNova", sans-serif;
+  border: 1px solid;
+  cursor: pointer;
+}
+.btn.white {
+  color: #000;
+  border-color: #000;
+}
+.btn.blue {
+  color: #fff;
+  background-color: #3f88c5;
+}
+
+section {
+  margin-top: 120px;
+}
+
+.regaly-body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.regaly-body .item {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 15px 32px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+}
+@media (min-width: 1054px) {
+  .regaly-body .item {
+    flex: 360px;
+    max-width: 360px;
+  }
+}
+.regaly-body .item .title {
+  flex: 2;
+  text-align: left;
+  font-family: "Proximanova", sans-serif;
+  font-size: 16px;
+  color: #000;
+  line-height: auto;
+}
+.regaly-body .item .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 1;
+  position: relative;
+}
+.regaly-body .item .img.no-top {
+  top: 0;
+}
+.regaly-body .item .img img {
+  text-align: end;
+  width: auto;
+}
+
+.direction-section .directions {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1054px) {
+  .direction-section .directions {
+    flex-direction: row;
+  }
+}
+.direction-section .directions .direction-item {
+  display: none;
+}
+@media (min-width: 1054px) {
+  .direction-section .directions .direction-item {
+    display: block;
+  }
+}
+.direction-section .directions .direction-item > div {
+  font-size: 22px;
+  font-family: "ProximaNova", sans-serif;
+  padding-left: 27px;
+  padding-right: 9%;
+  line-height: 1.4;
+}
+.direction-section .directions .direction-item > div.active {
+  color: #3f88c5;
+  position: relative;
+}
+.direction-section .directions .direction-item > div.active::after {
+  content: "";
+  position: absolute;
+  background-color: #3f88c5;
+  background-size: 13px;
+  border-radius: 50px;
+  width: 13px;
+  height: 13px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.direction-section .directions .direction-item > div:hover {
+  cursor: pointer;
+}
+.direction-section .directions > div {
+  flex: 1;
+}
+.direction-section .directions .swiper-directions {
+  display: none;
+  width: 510px;
+  position: relative;
+}
+@media (min-width: 1054px) {
+  .direction-section .directions .swiper-directions {
+    display: block;
+  }
+}
+.direction-section .directions .swiper-directions::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 2px;
+  left: 0;
+  top: 0;
+  background-color: #3f88c5;
+}
+.direction-section .directions .swiper-directions .swiper-slide {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 20px;
+  font-family: "ProximaNova", sans-serif;
+  line-height: 1.4;
+  padding-left: 9%;
+  max-height: 208px;
+}
+.direction-section .directions .swiper-directions .swiper-slide .buttons {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 14px;
+}
+.direction-section .directions .box {
+  position: relative;
+  margin-bottom: 10px;
+}
+@media (min-width: 1054px) {
+  .direction-section .directions .box {
+    display: none;
+  }
+}
+.direction-section .directions .box:last-child {
+  margin-bottom: 0;
+}
+.direction-section .directions .box .label {
+  position: relative;
+  padding: 20px 46px 20px 20px;
+  color: #000;
+  cursor: pointer;
+}
+.direction-section .directions .box .label::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.direction-section .directions .box.active .label {
+  color: #3f88c5;
+  position: relative;
+}
+.direction-section .directions .box.active .label::before {
+  content: "";
+  position: absolute;
+  background-color: #3f88c5;
+  background-size: 13px;
+  border-radius: 50px;
+  width: 13px;
+  height: 13px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.direction-section .directions .box.active .label::after {
+  content: "—"; /* Меняем иконку на "-" при нажатии на элемент */
+}
+.direction-section .directions .box .content {
+  font-size: 14px;
+  position: relative;
+  background-color: #fff; /* Цвет фона контента */
+  overflow: hidden;
+  max-height: 0; /* Скрываем контент */
+  transition: 0.3s; /* Для плавности анимации */
+}
+.direction-section .directions .box .content .buttons {
+  margin-top: 10px;
+  text-align: end;
+}
+.direction-section .directions .box .content .buttons .btn {
+  font-size: 14px;
+  padding: 8px 26px;
+}
+.direction-section .directions .box .content p {
+  padding: 20px;
+}
+.direction-section .swiper-pagination,
+.direction-section .swiper-scrollbar {
+  display: none;
+}
+
+.clients-body .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 50px;
+  column-gap: 9px;
+  padding-top: 20px;
+}
+.clients-body .cards .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 15px;
+  margin-left: 20px;
+  gap: 16px;
+  max-width: 380px;
+}
+.clients-body .cards .item .profile_fio {
+  display: flex;
+}
+.clients-body .cards .item .profile_fio .img {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background-size: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 70px;
+}
+@media (min-width: 1054px) {
+  .clients-body .cards .item .profile_fio .img {
+    background-size: 126px;
+    width: 126px;
+    height: 126px;
+  }
+}
+.clients-body .cards .item .profile_fio .fio {
+  padding-left: 90px;
+  font-size: 17px;
+}
+@media (min-width: 1054px) {
+  .clients-body .cards .item .profile_fio .fio {
+    padding-left: 107px;
+  }
+}
+.clients-body .cards .item .profile_fio .fio .name {
+  font-weight: 400;
+}
+.clients-body .cards .item .profile_fio .fio .logo-company {
+  margin-top: 10px;
+}
+.clients-body .cards .item .profile_fio .fio .logo-company img {
+  width: auto;
+}
+.clients-body .cards .item .desc {
+  text-align: center;
+}
+.clients-body .logos {
+  display: none;
+}
+@media (min-width: 1054px) {
+  .clients-body .logos {
+    margin-top: 50px;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+}
+.clients-body .logos > div {
+  flex: 1;
+}
+.clients-body .logos > div img {
+  width: auto;
+}
+.clients-body .swiper-logos {
+  margin-top: 50px;
+}
+.clients-body .swiper-logos .swiper-slide {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.clients-body .swiper-logos > div img {
+  max-width: 200px;
+}
+@media (min-width: 1054px) {
+  .clients-body .swiper-logos {
+    display: none;
+  }
+}

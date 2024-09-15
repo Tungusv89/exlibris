@@ -81,8 +81,6 @@ document.addEventListener('DOMContentLoaded', function ()
   {
     const width_now = document.querySelector('.directions').offsetWidth / 2;
     document.querySelector('.swiper').setAttribute('style', `width:${width_now}px`);
-    console.log(document.querySelector('.swiper').offsetWidth);
-
   }
 });
 

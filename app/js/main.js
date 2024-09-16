@@ -82,5 +82,20 @@ document.addEventListener('DOMContentLoaded', function ()
     const width_now = document.querySelector('.directions').offsetWidth / 2;
     document.querySelector('.swiper').setAttribute('style', `width:${width_now}px`);
   }
+
+  document.querySelector('.search i').addEventListener('click', () =>
+  {
+    const parent_elem = document.querySelector('.search i').parentElement;
+
+    // debugger;
+    if (parent_elem.classList.contains('active'))
+    {
+      parent_elem.classList.remove('active');
+    } else
+    {
+      parent_elem.classList.add(('active'));
+    }
+
+  });
 });
 

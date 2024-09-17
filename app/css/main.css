@@ -157,7 +157,12 @@ section {
   }
 }
 .header .logo {
-  width: 100px;
+  width: 200px;
+}
+@media (min-width: 1024px) {
+  .header .logo {
+    width: 100px;
+  }
 }
 .header .description {
   font-size: 16px;
@@ -456,13 +461,68 @@ section {
   z-index: 3;
 }
 
-.regaly-body {
+.regaly-section {
+  margin-top: 30px;
+}
+
+.regaly-body .row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.regaly-body .row1 img {
+  width: auto;
+}
+.regaly-body .row1 .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 30px;
+}
+.regaly-body .row1 .left .logo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.regaly-body .row1 .left .logo-block .main-logo {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .regaly-body .row1 .left .logo-block .main-logo {
+    display: block;
+  }
+}
+.regaly-body .row1 .left .logo-block .logos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.regaly-body .row1 .left .description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+}
+.regaly-body .row1 .right {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .regaly-body .row1 .right {
+    display: block;
+  }
+  .regaly-body .row1 .right img {
+    max-width: 400px;
+  }
+}
+.regaly-body .row2 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  margin-top: 40px;
 }
-.regaly-body .item {
+.regaly-body .row2 .item {
   flex: 1 0 0;
   display: flex;
   justify-content: space-between;
@@ -472,12 +532,12 @@ section {
   border-radius: 10px;
 }
 @media (min-width: 1024px) {
-  .regaly-body .item {
+  .regaly-body .row2 .item {
     flex: 360px;
     max-width: 360px;
   }
 }
-.regaly-body .item .title {
+.regaly-body .row2 .item .title {
   flex: 2;
   text-align: left;
   font-size: 16px;
@@ -485,7 +545,7 @@ section {
   line-height: auto;
   font-weight: 400;
 }
-.regaly-body .item .img {
+.regaly-body .row2 .item .img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -493,10 +553,10 @@ section {
   position: relative;
   top: -30px;
 }
-.regaly-body .item .img.no-top {
+.regaly-body .row2 .item .img.no-top {
   top: 0;
 }
-.regaly-body .item .img img {
+.regaly-body .row2 .item .img img {
   text-align: end;
   width: auto;
 }

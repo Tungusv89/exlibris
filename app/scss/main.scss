@@ -178,7 +178,11 @@ section {
   }
 
   .logo {
-    width: 100px;
+    width: 200px;
+
+    @media (min-width: 1024px) {
+      width: 100px;
+    }
   }
 
   .description {
@@ -553,50 +557,114 @@ section {
 }
 
 //
-.regaly-body {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+.regaly-section {
+  margin-top: 30px;
+}
 
-  .item {
-    flex: 1 0 0;
+.regaly-body {
+  .row1 {
     display: flex;
     justify-content: space-between;
-    gap: 1em;
-    padding: 15px 32px;
-    background-color: $gray;
-    border-radius: 10px;
+    align-items: center;
+    gap: 30px;
 
-    @media (min-width: 1024px) {
-      flex: 360px;
-      max-width: 360px;
+    img {
+      width: auto;
     }
 
-    .title {
-      flex: 2;
-      text-align: left;
-      font-size: 16px;
-      color: $text-main;
-      line-height: auto;
-      font-weight: 400;
-    }
-
-    .img {
+    .left {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex: 0 0 1;
-      position: relative;
-      top: -30px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      gap: 30px;
 
-      &.no-top {
-        top: 0;
+      .logo-block {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        .main-logo {
+          display: none;
+
+          @media (min-width: 1024px) {
+            display: block;
+          }
+        }
+
+        .logos {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
       }
 
-      img {
-        text-align: end;
-        width: auto;
+      .description {
+        font-size: 16px;
+        font-weight: 400;
+        color: $text-main;
+      }
+    }
+
+    .right {
+      display: none;
+
+      @media (min-width: 1024px) {
+        display: block;
+
+        img {
+          max-width: 400px;
+        }
+      }
+    }
+  }
+
+  .row2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+
+    .item {
+      flex: 1 0 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+      padding: 15px 32px;
+      background-color: $gray;
+      border-radius: 10px;
+
+      @media (min-width: 1024px) {
+        flex: 360px;
+        max-width: 360px;
+      }
+
+      .title {
+        flex: 2;
+        text-align: left;
+        font-size: 16px;
+        color: $text-main;
+        line-height: auto;
+        font-weight: 400;
+      }
+
+      .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 1;
+        position: relative;
+        top: -30px;
+
+        &.no-top {
+          top: 0;
+        }
+
+        img {
+          text-align: end;
+          width: auto;
+        }
       }
     }
   }

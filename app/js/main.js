@@ -122,18 +122,19 @@ jQuery(document).ready(function ()
     const header_icon = document.querySelector('.header-menu__icon');
     if (window.innerWidth >= 1024)
     {
-      // debugger;
       header_menu.classList.remove('active');
       header_icon.classList.remove('active');
     }
+
+    if (window.innerWidth < 1024)
+    {
+      $('.form-section input[type="submit"]').before($('.policy'));
+    } else
+    {
+      $('.address').after($('.policy'));
+    }
   })
+
+
 })
-
-
-
-
-
-
-
-
 

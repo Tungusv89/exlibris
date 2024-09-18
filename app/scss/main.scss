@@ -2,6 +2,7 @@ $blue: #3f88c5;
 $text-main: #000;
 $gray-dark: #7e7e7e;
 $gray: #f3f3f3;
+$dark: #2d353c;
 $light-gray: #e1e1e1;
 
 @font-face {
@@ -448,7 +449,7 @@ section {
     top: 0;
     right: -100%;
     width: 100%;
-    background-color: #2d353c;
+    background-color: $dark;
     z-index: 4;
     transition: all 0.3s cubic-bezier(0.08, 0.49, 1, 1);
     -webkit-transition: all 0.3s cubic-bezier(0.08, 0.49, 1, 1);
@@ -1126,7 +1127,7 @@ section {
     }
 
     .left {
-      flex: 1;
+      flex: 15;
       display: flex;
       align-items: center;
       align-items: flex-start;
@@ -1164,7 +1165,7 @@ section {
     }
 
     .right {
-      flex: 1;
+      flex: 20;
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -1214,6 +1215,180 @@ section {
         font-size: 17px;
         font-weight: 400;
         margin-top: 8px;
+      }
+    }
+  }
+}
+
+//
+.form-section {
+  background-color: $dark;
+}
+.form-body {
+  display: flex;
+  color: #fff;
+  padding: 65px 0;
+  flex-direction: column-reverse;
+  gap: 30px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+
+  .section-title {
+    margin: 0;
+  }
+
+  .policy {
+    margin-top: 60px;
+    font-size: 16px;
+    font-weight: 400;
+
+    @media (min-width: 1024px) {
+      max-width: 78%;
+    }
+
+    input {
+      appearance: none;
+    }
+
+    label {
+      display: block;
+      padding-left: 40px;
+      position: relative;
+      line-height: 1.6;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+        background-color: #fff;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+      }
+    }
+
+    input:checked + label {
+      &:after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 17px;
+        height: 17px;
+        background-size: 17px;
+        background-color: $blue;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+      }
+    }
+  }
+
+  .left {
+    flex: 1;
+    display: grid;
+    justify-items: start;
+
+    .section-title {
+      max-width: 133px;
+      text-align: start;
+    }
+
+    .phone,
+    .email {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 400;
+      max-width: 78%;
+    }
+    .phone {
+      margin-top: 24px;
+
+      @media (min-width: 1024px) {
+        margin-top: 35px;
+      }
+    }
+
+    .address {
+      font-size: 22px;
+      font-weight: 400;
+      max-width: 78%;
+      margin-top: 20px;
+
+      @media (min-width: 1024px) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    display: grid;
+    grid-auto-rows: auto;
+    justify-items: start;
+    row-gap: 24px;
+
+    .section-title {
+      text-align: start;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+
+      @media (min-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 9px;
+      }
+
+      input:not([type='submit'], [type='checkbox']) {
+        padding: 18px;
+        color: $text-main;
+        font-size: 18px;
+        font-weight: 400;
+        border-width: 0;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+
+        @media (min-width: 1024px) {
+          padding: 26px;
+        }
+
+        &::placeholder {
+          color: #5b5b5b;
+        }
+      }
+
+      input[type='submit'] {
+        border-width: 0;
+        width: fit-content;
+        padding: 20px 60px;
+
+        @media (min-width: 1024px) {
+          margin-top: 23px;
+        }
+      }
+
+      .policy {
+        margin-top: 4px;
       }
     }
   }

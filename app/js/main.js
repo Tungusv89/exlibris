@@ -44,29 +44,29 @@ jQuery(document).ready(function ()
   })
 
   // Аккордион
-  const boxes = Array.from(document.querySelectorAll(".box")); // считываем все элементы аккордеона в массив
+  // const boxes = Array.from(document.querySelectorAll(".box")); // считываем все элементы аккордеона в массив
 
-  boxes.forEach((box) =>
-  {
-    box.addEventListener("click", boxHandler); // при нажатии на бокс вызываем ф-ию boxHanlder
-  });
+  // boxes.forEach((box) =>
+  // {
+  //   box.addEventListener("click", boxHandler); // при нажатии на бокс вызываем ф-ию boxHanlder
+  // });
 
-  function boxHandler(e)
-  {
-    e.preventDefault(); // сбрасываем стандартное поведение
-    let currentBox = e.target.closest(".box"); // определяем текущий бокс
-    let currentContent = e.target.nextElementSibling; // находим скрытый контент
-    currentBox.classList.toggle("active"); // присваиваем ему активный класс
-    if (currentBox.classList.contains("active"))
-    {
-      // если класс активный ..
-      currentContent.style.maxHeight = currentContent.scrollHeight + "px"; // открываем контент
-    } else
-    {
-      // в противном случае
-      currentContent.style.maxHeight = 0; // скрываем контент
-    }
-  }
+  // function boxHandler(e)
+  // {
+  //   e.preventDefault(); // сбрасываем стандартное поведение
+  //   let currentBox = e.target.closest(".box"); // определяем текущий бокс
+  //   let currentContent = e.target.nextElementSibling; // находим скрытый контент
+  //   currentBox.classList.toggle("active"); // присваиваем ему активный класс
+  //   if (currentBox.classList.contains("active"))
+  //   {
+  //     // если класс активный ..
+  //     currentContent.style.maxHeight = currentContent.scrollHeight + "px"; // открываем контент
+  //   } else
+  //   {
+  //     // в противном случае
+  //     currentContent.style.maxHeight = 0; // скрываем контент
+  //   }
+  // }
 
   //
 
@@ -99,22 +99,22 @@ jQuery(document).ready(function ()
   });
 
   //
-  document.querySelector('.header-menu i').addEventListener('click', () =>
-  {
+  // document.querySelector('.header-menu i').addEventListener('click', () =>
+  // {
 
-    const sub_menu = document.querySelector('.header-menu .sub-menu');
-    if (document.querySelector('.header-menu i').nextElementSibling == sub_menu)
-    {
-      if (sub_menu.classList.contains('active'))
-      {
-        sub_menu.classList.remove('active');
-      } else
-      {
-        sub_menu.classList.add(('active'));
-      }
-    }
+  //   const sub_menu = document.querySelector('.header-menu .sub-menu');
+  //   if (document.querySelector('.header-menu i').nextElementSibling == sub_menu)
+  //   {
+  //     if (sub_menu.classList.contains('active'))
+  //     {
+  //       sub_menu.classList.remove('active');
+  //     } else
+  //     {
+  //       sub_menu.classList.add(('active'));
+  //     }
+  //   }
 
-  });
+  // });
 
   window.addEventListener('resize', () =>
   {
@@ -153,17 +153,38 @@ $(document).ready(function ()
     }
   });
 
-  $(".footer .menu-title").click(function ()
+  $(".direction-section .box").click(function ()
   {
     // Закрыть все открытые разделы
-    $('.footer ul').slideUp();
-    $('.footer .menu-title').removeClass('active')
+    $('.box .content').slideUp();
+    $('.box').removeClass('active')
+
+    console.log($('.box .content'));
 
     // Открыть текущий раздел, если он еще не открыт
-    if (!$(this).next().is(":visible"))
+    if (!$(this).find('.content').is(":visible"))
     {
-      $(this).next().slideDown();
+      $(this).find('.content').slideDown();
       $(this).addClass('active')
+    }
+  });
+
+  $(".header .menu-item").next().click(function ()
+  {
+    const sub_menu = $(this).parent('li').find('.sub-menu');
+    // Закрыть все открытые разделы
+    sub_menu.slideUp();
+    sub_menu.removeClass('active')
+
+
+    console.log(sub_menu);
+    // Открыть текущий раздел, если он еще не открыт
+    if (!sub_menu.is(":visible"))
+    {
+      console.log(1);
+
+      sub_menu.slideDown();
+      sub_menu.addClass('active')
     }
   });
 });

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Proxima Nova", sans-serif;
   src: local("Proxima Nova Light"), local("Proxima-Nova-Light"), url("fonts/ProximaNova-Light.woff2") format("woff2"), url("fonts/ProximaNova-Light.woff") format("woff");
@@ -423,22 +422,30 @@ section {
   font-weight: 400;
 }
 .header .header-menu li i {
-  display: inline;
   margin-left: 10px;
   color: #fff;
   cursor: pointer;
   padding: 10px;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
 }
 .header .header-menu li:has(.sub-menu) .menu-item {
   position: relative;
   width: 100%;
-  display: inline;
+}
+.header .header-menu li:has(.sub-menu.active) i {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
 }
 .header .header-menu .sub-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
-  height: 0;
-  opacity: 0;
   padding-left: 20px;
   transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
@@ -447,13 +454,12 @@ section {
   -o-transition: all 0.3s ease-in;
 }
 .header .header-menu .sub-menu.active {
-  height: auto;
-  opacity: 1;
   margin-top: 10px;
 }
 .header .header-menu .sub-menu .menu-item {
   font-size: 18px;
   padding: 8px 0;
+  display: inline-block;
 }
 .header .header-menu.active {
   left: auto;
@@ -662,29 +668,46 @@ section {
   position: relative;
   margin-bottom: 10px;
 }
+.direction-section .directions .box:last-child {
+  margin-bottom: 0;
+}
 @media (min-width: 1024px) {
   .direction-section .directions .box {
     display: none;
   }
-}
-.direction-section .directions .box:last-child {
-  margin-bottom: 0;
 }
 .direction-section .directions .box .label {
   position: relative;
   padding: 20px 46px 20px 20px;
   color: #000;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
-.direction-section .directions .box .label::after {
-  content: "+";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px;
-  font-size: 25px;
-  font-weight: bold;
-  color: #cbcbcb;
+.direction-section .directions .box .label i {
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+}
+.direction-section .directions .box .content {
+  font-size: 14px;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  display: none;
+}
+.direction-section .directions .box .content p {
+  padding: 20px;
+}
+.direction-section .directions .box .content .buttons {
+  margin-top: 16px;
+  text-align: end;
+}
+.direction-section .directions .box .content .buttons .btn {
+  font-size: 14px;
+  padding: 8px 26px;
 }
 .direction-section .directions .box.active .label {
   color: #3f88c5;
@@ -702,27 +725,12 @@ section {
   top: 50%;
   transform: translateY(-50%);
 }
-.direction-section .directions .box.active .label::after {
-  content: "—"; /* Меняем иконку на "-" при нажатии на элемент */
-}
-.direction-section .directions .box .content {
-  font-size: 14px;
-  position: relative;
-  background-color: #fff; /* Цвет фона контента */
-  overflow: hidden;
-  max-height: 0; /* Скрываем контент */
-  transition: 0.3s; /* Для плавности анимации */
-}
-.direction-section .directions .box .content .buttons {
-  margin-top: 10px;
-  text-align: end;
-}
-.direction-section .directions .box .content .buttons .btn {
-  font-size: 14px;
-  padding: 8px 26px;
-}
-.direction-section .directions .box .content p {
-  padding: 20px;
+.direction-section .directions .box.active .label i {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
 }
 .direction-section .swiper-pagination,
 .direction-section .swiper-scrollbar {

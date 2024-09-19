@@ -135,6 +135,36 @@ jQuery(document).ready(function ()
     }
   })
 
-
 })
+
+$(document).ready(function ()
+{
+  $(".footer .menu-title").click(function ()
+  {
+    // Закрыть все открытые разделы
+    $('.footer ul').slideUp();
+    $('.footer .menu-title').removeClass('active')
+
+    // Открыть текущий раздел, если он еще не открыт
+    if (!$(this).next().is(":visible"))
+    {
+      $(this).next().slideDown();
+      $(this).addClass('active')
+    }
+  });
+
+  $(".footer .menu-title").click(function ()
+  {
+    // Закрыть все открытые разделы
+    $('.footer ul').slideUp();
+    $('.footer .menu-title').removeClass('active')
+
+    // Открыть текущий раздел, если он еще не открыт
+    if (!$(this).next().is(":visible"))
+    {
+      $(this).next().slideDown();
+      $(this).addClass('active')
+    }
+  });
+});
 

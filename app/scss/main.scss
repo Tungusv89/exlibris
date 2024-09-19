@@ -1393,3 +1393,36 @@ section {
     }
   }
 }
+
+//
+.cases-section {
+  .achievements {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 18px;
+
+    background-color: $blue;
+    padding: 55px;
+    padding: 35px;
+    gap: 24px;
+    border-radius: 19px;
+    -webkit-border-radius: 19px;
+    -moz-border-radius: 19px;
+    -ms-border-radius: 19px;
+    -o-border-radius: 19px;
+
+    @media (min-width: 680px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 19px;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+}
